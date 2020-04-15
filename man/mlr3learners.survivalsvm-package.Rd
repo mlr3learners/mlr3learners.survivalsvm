@@ -6,7 +6,8 @@
 \alias{mlr3learners.survivalsvm-package}
 \title{mlr3learners.survivalsvm: Learners from the {survivalsvm} package for 'mlr3'}
 \description{
-Adds learners from the {survivalsvm} package to 'mlr3'.
+Adds learners from the {survivalsvm} package to
+    'mlr3'.
 }
 \author{
 \strong{Maintainer}: Raphael Sonabend \email{raphael.sonabend.15@ucl.ac.uk}

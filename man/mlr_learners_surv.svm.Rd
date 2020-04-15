@@ -5,7 +5,7 @@
 \alias{LearnerSurvSVM}
 \title{Survival Support Vector Machine Learner}
 \description{
-A \link[mlr3:LearnerSurv]{mlr3::LearnerSurv} implementing svm from package
+A \link[mlr3proba:LearnerSurv]{mlr3proba::LearnerSurv} implementing svm from package
 \CRANpkg{survivalsvm}.
 Calls \code{\link[survivalsvm:survivalsvm]{survivalsvm::survivalsvm()}}.
 }

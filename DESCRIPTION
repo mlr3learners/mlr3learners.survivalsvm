@@ -6,7 +6,8 @@ Authors@R:
            family = "Sonabend",
            role = "cre",
            email = "raphael.sonabend.15@ucl.ac.uk")
-Description: Adds learners from the {survivalsvm} package to 'mlr3'.
+Description: Adds learners from the {survivalsvm} package to
+    'mlr3'.
 License: LGPL-3
 Depends:
     R (>= 3.1.0)
@@ -14,16 +15,16 @@ Imports:
     data.table,
     mlr3 (>= 0.1.7),
     mlr3misc,
+    mlr3proba (>= 0.1.4.9000),
     paradox,
     R6,
-    survival,
-    mlr3proba (>= 0.1.4.9000)
+    survival
 Suggests:
     checkmate,
+    distr6,
     rmarkdown,
-    testthat,
     survivalsvm,
-    distr6
+    testthat
 Remotes:
     mlr-org/mlr3proba
 Encoding: UTF-8

@@ -13,7 +13,7 @@ register_mlr3 = function(libname, pkgname) {
   x = utils::getFromNamespace("mlr_learners", ns = "mlr3")
 
   # add the learner to the dictionary
-    x$add("surv.svm", LearnerSurvSVM)
+  x$add("surv.svm", LearnerSurvSVM)
   # Example: x$add("regr.gamboost", LearnerRegrGAMBoost)
 }
 

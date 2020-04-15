@@ -3,7 +3,7 @@
 #' @name mlr_learners_surv.svm
 #'
 #' @description
-#' A [mlr3::LearnerSurv] implementing svm from package
+#' A [mlr3proba::LearnerSurv] implementing svm from package
 #'   \CRANpkg{survivalsvm}.
 #' Calls [survivalsvm::survivalsvm()].
 #'
@@ -46,11 +46,17 @@ LearnerSurvSVM = R6Class("LearnerSurvSVM",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamFct$new(id = "type", default = "regression", levels = c("regression", "vanbelle1", "vanbelle2", "hybrid"), tags = "train"),
-          ParamFct$new(id = "diff.meth", levels = c("makediff1", "makediff2", "makediff3"), tags = c("train")),
-          ParamUty$new(id = "gamma.mu", tags = c("train","required")),
-          ParamFct$new(id = "opt.meth", default = "quadprog", levels = c("quadprog", "ipop"), tags = "train"),
-          ParamFct$new(id = "kernel", default = "lin_kernel", levels = c("lin_kernel", "add_kernel","rbf_kernel","poly_kernel"), tags = "train"),
+          ParamFct$new(id = "type", default = "regression",
+                       levels = c("regression", "vanbelle1", "vanbelle2", "hybrid"),
+                       tags = "train"),
+          ParamFct$new(id = "diff.meth", levels = c("makediff1", "makediff2", "makediff3"),
+                       tags = c("train")),
+          ParamUty$new(id = "gamma.mu", tags = c("train", "required")),
+          ParamFct$new(id = "opt.meth", default = "quadprog", levels = c("quadprog", "ipop"),
+                       tags = "train"),
+          ParamFct$new(id = "kernel", default = "lin_kernel",
+                       levels = c("lin_kernel", "add_kernel", "rbf_kernel", "poly_kernel"),
+                       tags = "train"),
           ParamUty$new(id = "kernel.pars", tags = "train"),
           ParamInt$new(id = "sgf.sv", default = 5L, lower = 0L, tags = "train"),
           ParamInt$new(id = "sigf", default = 7L, lower = 0L, tags = "train"),
@@ -63,7 +69,7 @@ LearnerSurvSVM = R6Class("LearnerSurvSVM",
         )
       )
 
-      ps$add_dep("diff.meth", "type", CondAnyOf$new(c("vanbelle1","vanbelle2","hybrid")))
+      ps$add_dep("diff.meth", "type", CondAnyOf$new(c("vanbelle1", "vanbelle2", "hybrid")))
 
       super$initialize(
         id = "surv.svm",
@@ -77,13 +83,12 @@ LearnerSurvSVM = R6Class("LearnerSurvSVM",
   ),
 
   private = list(
-
     .train = function(task) {
-      with_package("survivalsvm",{
+      with_package("survivalsvm", {
         mlr3misc::invoke(survivalsvm::survivalsvm,
-               formula = task$formula(),
-               data = task$data(),
-               .args = self$param_set$get_values(tags = "train"))
+          formula = task$formula(),
+          data = task$data(),
+          .args = self$param_set$get_values(tags = "train"))
       })
     },
 
