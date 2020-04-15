@@ -46,17 +46,21 @@ LearnerSurvSVM = R6Class("LearnerSurvSVM",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamFct$new(id = "type", default = "regression",
-                       levels = c("regression", "vanbelle1", "vanbelle2", "hybrid"),
-                       tags = "train"),
-          ParamFct$new(id = "diff.meth", levels = c("makediff1", "makediff2", "makediff3"),
-                       tags = c("train")),
+          ParamFct$new(
+            id = "type", default = "regression",
+            levels = c("regression", "vanbelle1", "vanbelle2", "hybrid"),
+            tags = "train"),
+          ParamFct$new(
+            id = "diff.meth", levels = c("makediff1", "makediff2", "makediff3"),
+            tags = c("train")),
           ParamUty$new(id = "gamma.mu", tags = c("train", "required")),
-          ParamFct$new(id = "opt.meth", default = "quadprog", levels = c("quadprog", "ipop"),
-                       tags = "train"),
-          ParamFct$new(id = "kernel", default = "lin_kernel",
-                       levels = c("lin_kernel", "add_kernel", "rbf_kernel", "poly_kernel"),
-                       tags = "train"),
+          ParamFct$new(
+            id = "opt.meth", default = "quadprog", levels = c("quadprog", "ipop"),
+            tags = "train"),
+          ParamFct$new(
+            id = "kernel", default = "lin_kernel",
+            levels = c("lin_kernel", "add_kernel", "rbf_kernel", "poly_kernel"),
+            tags = "train"),
           ParamUty$new(id = "kernel.pars", tags = "train"),
           ParamInt$new(id = "sgf.sv", default = 5L, lower = 0L, tags = "train"),
           ParamInt$new(id = "sigf", default = 7L, lower = 0L, tags = "train"),
