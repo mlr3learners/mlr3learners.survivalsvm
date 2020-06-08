@@ -112,7 +112,7 @@ LearnerSurvSVM = R6Class("LearnerSurvSVM",
         crank = response = as.numeric(fit$predicted)
       }
 
-      PredictionSurv$new(task = task, crank = crank, response = response, lp = lp, distr = distr)
+      mlr3proba::PredictionSurv$new(task = task, crank = crank, response = response, lp = lp, distr = distr)
     }
   )
 )
