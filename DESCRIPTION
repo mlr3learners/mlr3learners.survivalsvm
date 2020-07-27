@@ -15,13 +15,13 @@ Imports:
     data.table,
     mlr3 (>= 0.3.0),
     mlr3misc,
-    mlr3proba (>= 0.1.6),
+    mlr3proba (>= 0.2.0),
     paradox,
     R6,
     survival
 Suggests:
     checkmate,
-    distr6,
+    distr6 (>= 1.4.2),
     rmarkdown,
     survivalsvm,
     testthat
